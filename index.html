@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Conversiones</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Calculadora de Conversiones</h1>
+    <div class="row mt-4">
+      <!-- Conversión de Pesos a Dólares -->
+      <div class="col-sm">
+        <h4>Pesos a Dólares</h4>
+        <div class="input-group mb-3">
+          <input type="number" id="pesosInput" class="form-control" placeholder="Cantidad en Pesos">
+          <div class="input-group-append">
+            <span class="input-group-text">MXN</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="convertToDollars()">Convertir</button>
+        <p id="dollarsOutput"></p>
+      </div>
+      <!-- Conversión de Celsius a Fahrenheit -->
+      <div class="col-sm">
+        <h4>Celsius a Fahrenheit</h4>
+        <div class="input-group mb-3">
+          <input type="number" id="celsiusInput" class="form-control" placeholder="Temperatura en Celsius">
+          <div class="input-group-append">
+            <span class="input-group-text">°C</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="convertToFahrenheit()">Convertir</button>
+        <p id="fahrenheitOutput"></p>
+      </div>
+      <!-- Conversión de Dólar a Euro -->
+      <div class="col-sm">
+        <h4>Dólar a Euro</h4>
+        <div class="input-group mb-3">
+          <input type="number" id="dollarInput" class="form-control" placeholder="Cantidad en Dólares">
+          <div class="input-group-append">
+            <span class="input-group-text">$</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="convertToEuro()">Convertir</button>
+        <p id="euroOutput"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS y jQuery (al final del body para una carga más rápida) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script para las conversiones -->
+  <script>
+    function convertToDollars() {
+      var pesos = parseFloat(document.getElementById("pesosInput").value);
+      var dollars = pesos / 20; // Tasa de cambio hipotética
+      document.getElementById("dollarsOutput").innerText = "Dólares: $" + dollars.toFixed(2);
+    }
+
+    function convertToFahrenheit() {
+      var celsius = parseFloat(document.getElementById("celsiusInput").value);
+      var fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById("fahrenheitOutput").innerText = "Fahrenheit: " + fahrenheit.toFixed(2) + "°F";
+    }
+
+    function convertToEuro() {
+      var dollars = parseFloat(document.getElementById("dollarInput").value);
+      var euro = dollars * 0.82; // Tasa de cambio hipotética
+      document.getElementById("euroOutput").innerText = "Euro: €" + euro.toFixed(2);
+    }
+  </script>
+</body>
+</html>
